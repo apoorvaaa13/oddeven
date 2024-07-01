@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Even Odd App</title>
+    <style>
+        * { font-size: 40px; font-family: 'Ink Free'; }
+        body { background-color: lightblue; }
+        h1 { background-color: black; color: white; width: 50%; border-radius: 40px; }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Even Odd App</h1>
+        <form onsubmit="return show()">
+            <input type="number" placeholder="Enter integer" id="num" />
+            <br/><br/>
+            <input type="submit" value="Check" />
+        </form>
+        <h2 id="msg"></h2>
+        <script>
+            function show() {
+                event.preventDefault();
+                let num = document.getElementById("num");
+                let msg = document.getElementById("msg");
+
+                if (num.value === "") {
+                    alert("You did not enter a number");
+                    msg.innerHTML = "";
+                    num.focus();
+                    return false;
+                }
+
+                let n = parseInt(num.value);
+                let rep = "";
+
+                if (n % 2 === 0) {
+                    rep = "The number " + n + " is even";
+                } else {
+                    rep = "The number " + n + " is odd";
+                }
+                msg.innerHTML = rep;
+                return false;
+            }
+        </script>
+    </center>
+</body>
+</html>
